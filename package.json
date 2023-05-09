@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "@darkobits/react-kit",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "WTFPL",
+  "description": "Miscellaneous utilities for React applications.",
+  "author": "darkobits",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darkobits/react-kit"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "nr prepare",
+    "help": "nr --scripts"
+  },
+  "dependencies": {
+    "bowser": "^2.11.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@darkobits/ts": "~0.15.2",
+    "@types/react-dom": "^18.2.4",
+    "jsdom": "^22.0.0"
+  }
+}
