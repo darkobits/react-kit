@@ -49,12 +49,14 @@ npm install --save @darkobits/react-kit
 - [`assertIsBrowser`](#assertisbrowser)
 - [`setCssVariable`](#setcssvariable)
 - [`hideCursor` / `showCursor`](#hidecursor--showcursor)
+- [`emit`](#emit)
 - [`injectScript`](#injectscript)
 - [`jsonToBase64` / `base64ToJson`](#jsontobase64--base64tojson)
 - [`getPlatformDetails`](#getplatformdetails)
 - [`isMobile`](#ismobile)
 - [`isStandalone`](#isstandalone)
 - [`prefetchImage`](#prefetchimage)
+- [Other Resources](#other-resources)
 
 ---
 
@@ -337,6 +339,12 @@ getImageUrlSomehow()
   .then(prefetchImage)
   .then(doSomethingWithImageUrl);
 ```
+
+---
+
+## Other Resources
+
+- [`react-use`](https://github.com/streamich/react-use) - Comprehensive set of React hooks.
 
 <picture>
   <img
