@@ -34,15 +34,13 @@ describe('parseClassName', () => {
 
 describe('setCssVariable', () => {
   const varName = '--testVar';
+  const htmlEl = document.querySelector('html');
 
   describe('when provided a variable name and no scope', () => {
     const varValue = 'rgba(128, 128, 128, 1)';
 
     it('should set the provided variable on the html element', () => {
-      const htmlEl = document.querySelector('html');
-
       setCssVariable(varName, varValue);
-
       expect(htmlEl?.style.getPropertyValue(varName)).toBe(varValue);
     });
   });
@@ -53,24 +51,40 @@ describe('setCssVariable', () => {
     it('should set the provided variable on all matching elements', () => {
       const testEl = document.createElement('div');
       document.body.append(testEl);
-
       setCssVariable(varName, varValue, 'div');
-
       expect(testEl.style.getPropertyValue(varName)).toBe(varValue);
     });
   });
 
   describe('when provided a wrapped variable name and scope', () => {
-    const wrappedVarName = `var(${varName})`;
     const varValue = 'rgba(1, 2, 3, 1)';
 
     it('should set the provided variable on all matching elements', () => {
       const testEl = document.createElement('div');
       document.body.append(testEl);
-
-      setCssVariable(wrappedVarName, varValue, 'div');
-
+      setCssVariable(varName, varValue, 'div');
       expect(testEl.style.getPropertyValue(varName)).toBe(varValue);
+    });
+  });
+
+  describe('when provided a falsy value', () => {
+    const varValue = 'rgba(64, 64, 64, 1)';
+
+    it('should set the variables value to "unset"', () => {
+      setCssVariable(varName, varValue);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe(varValue);
+      setCssVariable(varName, false);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe('unset');
+
+      setCssVariable(varName, varValue);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe(varValue);
+      setCssVariable(varName, null);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe('unset');
+
+      setCssVariable(varName, varValue);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe(varValue);
+      setCssVariable(varName, undefined);
+      expect(htmlEl?.style.getPropertyValue(varName)).toBe('unset');
     });
   });
 });

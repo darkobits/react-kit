@@ -144,8 +144,10 @@ setCssVariable('--color', 'rgba(128, 128, 128, 0.6)');
 // Only set on element(s) matching the provided selector.
 setCssVariable('--color', 'rgba(128, 128, 128, 0.6)', '.my-element');
 
-// To unset a variable, set its value to "unset".
-setCssVariable('--color', 'unset');
+// To unset a variable, pass `false`, `null`, or `undefined`:
+setCssVariable('--color', false);
+setCssVariable('--color', null);
+setCssVariable('--color');
 ```
 
 ---
