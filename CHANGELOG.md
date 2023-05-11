@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/darkobits/react-kit/compare/v0.2.1...v0.3.0) (2023-05-11)
+
+
+### ✨ Features
+
+* `setCssVariable` accepts falsy values to unset variables. ([6781bdf](https://github.com/darkobits/react-kit/commit/6781bdfbcbc37afa0ead1ee1501bea528ebfd9cd))
+
 ## [0.2.1](https://github.com/darkobits/react-kit/compare/v0.2.0...v0.2.1) (2023-05-11)
 
 
