@@ -21,7 +21,7 @@
     "prepublishOnly": "re-pack guard",
     "help": "nr --scripts"
   },
-  "peerDependency": {
+  "peerDependencies": {
     "react-dom": "^18.2.0"
   },
   "dependencies": {
