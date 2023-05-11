@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.1](https://github.com/darkobits/react-kit/compare/v0.2.0...v0.2.1) (2023-05-11)
+
+
+### 🐞 Bug Fixes
+
+* Fix typo in `package.json`. ([b8a80c3](https://github.com/darkobits/react-kit/commit/b8a80c3b623322436611e73e9ee8a5c0cb69f387))
+
 ## [0.2.0](https://github.com/darkobits/react-kit/compare/v0.1.0...v0.2.0) (2023-05-11)
 
 
