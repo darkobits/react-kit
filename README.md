@@ -45,6 +45,7 @@ npm install --save @darkobits/react-kit
 
 # Use
 
+- [`render`](#render)
 - [`assertIsBrowser`](#assertisbrowser)
 - [`setCssVariable`](#setcssvariable)
 - [`hideCursor` / `showCursor`](#hidecursor--showcursor)
@@ -54,7 +55,38 @@ npm install --save @darkobits/react-kit
 - [`isMobile`](#ismobile)
 - [`isStandalone`](#isstandalone)
 - [`prefetchImage`](#prefetchimage)
-- [`render`](#render)
+
+---
+
+### `render`
+
+```ts
+// Import
+import { render } from '@darkobits/react-kit/render';
+// Signature
+function render(selector: string, element: JSX.Element): () => void;
+```
+
+Shorthand for rendering a React root at the provided selector using `react-dom/client`. This function
+performs the following actions:
+
+1. Use `document.querySelector` to locate the target element indicated by `selector`.
+2. If no element was found, throw.
+3. Create a root using `createRoot`.
+4. Call `root.render`, passing the provided `element`.
+5. Return the root's `unmount` function.
+
+> ⚠️ This package declares `react-dom` as a peer dependency. However, you should still install
+> `react-dom` as a dependency of your project, even if your package manager automatically installs peer
+> dependencies.
+
+> `index.tsx`
+
+```tsx
+import { render } from '@darkobits/react-kit/render';
+import { App } from './App';
+render('#root', <App />);
+```
 
 ---
 
@@ -137,6 +169,37 @@ hideCursor();
 // To show the cursor again:
 showCursor();
 ```
+
+---
+
+### `emit`
+
+```ts
+// Import
+import { emit } from '@darkobits/react-kit/emit';
+// Signature
+function emit(eventName: string, eventData?: any): void;
+```
+
+Emits a [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`
+with optional event data. Event data will be assigned to the `detail` property of the `CustomEvent`.
+
+**Type-Safe Events**
+
+To add type-safety to this function as well as `window.addEventListener` and `window.dispatchEvent`,
+create a file with the `.d.ts` extension (`globals.d.ts` is common) in your project with the following:
+
+```ts
+interface WindowEventMap {
+  'my-custom-event': CustomEvent<{
+    kittens: true
+  }>;
+}
+```
+
+The interface `WindowEventMap` is what `addEventListener` and `dispatchEvent` use to look-up known event
+names and their corresponding data. This definition will be _merged_ with the global definition,
+effectively `extend`-ing it.
 
 ---
 
@@ -273,38 +336,6 @@ If this function is provided a falsy value, it will resolve with an empty string
 getImageUrlSomehow()
   .then(prefetchImage)
   .then(doSomethingWithImageUrl);
-```
-
----
-
-### `render`
-
-```ts
-// Import
-import { render } from '@darkobits/react-kit/render';
-// Signature
-function render(selector: string, element: JSX.Element): () => void;
-```
-
-Shorthand for rendering a React root at the provided selector using `react-dom/client`. This function
-performs the following actions:
-
-1. Use `document.querySelector` to locate the target element indicated by `selector`.
-2. If no element was found, throw.
-3. Create a root using `createRoot`.
-4. Call `root.render`, passing the provided `element`.
-5. Return the root's `unmount` function.
-
-> ⚠️ This package declares `react-dom` as a peer dependency. However, you should still install
-> `react-dom` as a dependency of your project, even if your package manager automatically installs peer
-> dependencies.
-
-> `index.tsx`
-
-```tsx
-import { render } from '@darkobits/react-kit/render';
-import { App } from './App';
-render('#root', <App />);
 ```
 
 <picture>
