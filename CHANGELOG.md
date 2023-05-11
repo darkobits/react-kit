@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/darkobits/react-kit/compare/v0.1.0...v0.2.0) (2023-05-11)
+
+
+### 🏗 Chores
+
+* Bump `setup-node` action. ([b9c0865](https://github.com/darkobits/react-kit/commit/b9c0865117812887cf749eb80ce95033be1f63bd))
+
+
+### ✨ Features
+
+* Add `emit` utility. ([4b57dfa](https://github.com/darkobits/react-kit/commit/4b57dfabcbedbd730f13f590d10fba4c4a7ae639))
+
+
+### 📖 Documentation
+
+* Update README. ([8dd90ef](https://github.com/darkobits/react-kit/commit/8dd90ef1def52b15f0cc55e5c7513719b8414622))
+
 ## 0.1.0 (2023-05-11)
 
 
