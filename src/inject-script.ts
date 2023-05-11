@@ -14,7 +14,7 @@ type OptionalAttributes = Partial<NonFunctionAttributes<Omit<HTMLScriptElement, 
  * Injects a <script> tag with the provided URL into the document and returns a
  * Promise that resolves when the script has finished loading.
  */
-export async function injectScript(src: HTMLScriptElement['src'], attrs?: OptionalAttributes): Promise<void> {
+export async function injectScript(src: string, attrs?: OptionalAttributes): Promise<void> {
   assertIsBrowser('injectScript');
 
   return new Promise((resolve, reject) => {
