@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/darkobits/react-kit/compare/v0.3.0...v0.4.0) (2023-06-02)
+
+
+### ✨ Features
+
+* Add `lazy`. ([526af94](https://github.com/darkobits/react-kit/commit/526af94e79c37699b5ece1589a2dbc585bedd8d6))
+
+
+### 🏗 Chores
+
+* Improve tests. ([6482b0f](https://github.com/darkobits/react-kit/commit/6482b0fa31f169a590cb1723bd66e5cd180fb7e9))
+
 ## [0.3.0](https://github.com/darkobits/react-kit/compare/v0.2.1...v0.3.0) (2023-05-11)
 
 
