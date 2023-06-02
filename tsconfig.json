@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "outDir": "dist",
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     "lib": ["ESNext", "DOM"]
   }

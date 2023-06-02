@@ -46,6 +46,7 @@ npm install --save @darkobits/react-kit
 # Use
 
 - [`render`](#render)
+- [`lazy`](#lazy)
 - [`assertIsBrowser`](#assertisbrowser)
 - [`setCssVariable`](#setcssvariable)
 - [`hideCursor` / `showCursor`](#hidecursor--showcursor)
@@ -89,6 +90,82 @@ import { render } from '@darkobits/react-kit/render';
 import { App } from './App';
 render('#root', <App />);
 ```
+
+---
+
+### `lazy`
+
+```ts
+// Import
+import { lazy } from '@darkobits/react-kit/lazy';
+// Signature
+function lazy<
+  M extends Record<string, any>,
+  K extends keyof M
+>(loader: () => Promise<M>): AsPreLoadableLazyExotics<M>
+```
+
+Facilitates the lazy loading of React components with some extras:
+- You can use destructuring to reference named exports.
+- You may optionally optimistically pre-load components.
+
+Assuming we have a file `Components.tsx` that exports 2 React components and some other value:
+
+> `Components.tsx`
+
+```tsx
+export const Foo = () => {
+  return (
+    <div>Foo</div>
+  )
+};
+
+export const Bar = () => {
+  return (
+    <div>Bar</div>
+  );
+}
+
+export const Baz = false;
+```
+
+Then, in another file, we can lazily import these components thusly:
+
+> `App.tsx`
+
+```tsx
+import { lazy } from '@darkobits/react-kit/lazy';
+
+// Foo, Bar are correctly typed as lazy React components with their typed props,
+// if applicable.
+const { Foo, Bar } = lazy(async () => import('./Components.tsx'));
+
+// Type error; Baz is not a component.
+const { Baz } = lazy(async () => import('./Components.tsx'));
+
+export const App = () => {
+  return (
+    <Foo />
+    <Bar />
+  )
+}
+```
+
+**Pre-Loading**
+
+This function attaches a static `preload` method to components that can be invoked to optimistically
+pre-load a component. This method returns a `Promise` that will resolve when the component has loaded.
+
+```ts
+import { lazy } from '@darkobits/react-kit/lazy';
+
+const { Foo } = lazy(async () => import('./Components.tsx'));
+await Foo.preload();
+```
+
+**Caveats**
+- When using this (or other solutions) to circumvent the [default export requirement](https://reactjs.org/docs/code-splitting.html#named-exports),
+  tree-shaking will not work on the imported module. In most cases, this should not be an issue.
 
 ---
 
