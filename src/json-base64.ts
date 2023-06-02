@@ -17,20 +17,21 @@ export function jsonToBase64(value: any) {
 /**
  * Parses and decodes the provided base-64-encoded JSON value.
  */
-export function base64ToJson(value: string) {
+export function base64ToJson<T = Record<string, any>>(value: string) {
   if (typeof value !== 'string')
     throw new TypeError(`[base64ToJson] Expected first argument to be of type "string", got "${typeof value}".`);
 
-  let decodedValue;
+  let decodedValue: string;
 
   try {
     decodedValue = atob(value);
+    if (decodedValue.length === 0) throw new Error('Got an empty string.');
   } catch (err: any) {
     throw new Error('[base64ToJson] The provided value is not valid base-64.', { cause: err });
   }
 
   try {
-    return JSON.parse(decodedValue);
+    return JSON.parse(decodedValue) as T;
   } catch (err: any) {
     throw new Error(`[base64ToJson] Error serializing value: ${err.message}`, { cause: err });
   }
