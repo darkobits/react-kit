@@ -272,15 +272,15 @@ create a file with the `.d.ts` extension (`globals.d.ts` is common) in your proj
 
 ```ts
 interface WindowEventMap {
-  'my-custom-event': CustomEvent<{
+  'custom-event': CustomEvent<{
     kittens: true
   }>;
 }
 ```
 
 The interface `WindowEventMap` is what `addEventListener` and `dispatchEvent` use to look-up known event
-names and their corresponding data. This definition will be _merged_ with the global definition,
-effectively `extend`-ing it.
+names and their corresponding data. The definition above will be _merged_ with the global definition
+such that `window.addEventListener` will now be aware of `custom-event` and its event data.
 
 ---
 
