@@ -8,7 +8,7 @@
  * parseCssVariable('var(--foo)') => '--foo'
  */
 function parseCssVariable(input: string) {
-  return input.replace(/var\(/g, '').replace(/\)/g, '');
+  return input.replaceAll('var(', '').replaceAll(')', '');
 }
 
 

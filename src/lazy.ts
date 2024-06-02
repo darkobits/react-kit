@@ -57,8 +57,12 @@ export function lazy<M extends Record<string, any>, K extends keyof M>(loader: (
 
       let PreloadedComponent: C;
 
+      // React.CustomComponentPropsWithRef<M[K]>
+
       const ProxyComponent = React.forwardRef((props: React.ComponentProps<C>, ref: React.ForwardedRef<C>) => {
         const componentRef = React.useRef(PreloadedComponent ?? LazyComponent);
+        // @ts-expect-error Type LazyExoticComponent is not assignable to type
+        // FunctionComponent.
         return React.createElement(componentRef.current, Object.assign(ref ? { ref } : {}, props));
       }) as PreLoadableLazyExoticComponent<C>;
 

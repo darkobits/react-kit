@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/prefer-optional-chain */
+/* eslint-disable unicorn/no-typeof-undefined */
+
 /**
  * Throws an error if called outside of a browser context.
  */
