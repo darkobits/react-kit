@@ -1,6 +1,6 @@
 {
   "name": "@darkobits/react-kit",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "license": "WTFPL",
   "description": "Miscellaneous utilities for React applications.",

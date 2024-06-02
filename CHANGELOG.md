@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.1](https://github.com/darkobits/react-kit/compare/v0.4.0...v0.4.1) (2024-06-02)
+
+
+### 🏗 Chores
+
+* Add tests. ([57f22dd](https://github.com/darkobits/react-kit/commit/57f22ddcef360cea5970a11b136fd5d8c17d2422))
+* **deps:** Update dependencies. ([d5bfcdb](https://github.com/darkobits/react-kit/commit/d5bfcdb45070e2d935cab2004570bd3b1c14ed54))
+* **deps:** Update dependencies. ([0056f22](https://github.com/darkobits/react-kit/commit/0056f22c360d9d884138b4feafc7f3b05d8821a4))
+* Update LICENSE. ([1571e12](https://github.com/darkobits/react-kit/commit/1571e12ac189d7fdfefa70df94d9dadb26b4e114))
+
+
+### 📖 Documentation
+
+* Update README. ([1ef73d5](https://github.com/darkobits/react-kit/commit/1ef73d532ba2e16ac9a182350e4c8c2b370a4774))
+
 ## [0.4.0](https://github.com/darkobits/react-kit/compare/v0.3.0...v0.4.0) (2023-06-02)
 
 
